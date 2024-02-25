@@ -8,6 +8,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 
+
+
 import { routes } from '#src/router.mjs';
 
 global.__dirname = path.dirname(fileURLToPath(import.meta.url));

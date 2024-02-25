@@ -7,8 +7,10 @@
 import http from 'node:http';
 import debugLib from 'debug';
 import app from '#app';
-
 import config from '#config/app.config.json' assert { type: 'json' };
+
+
+//import config from '#config/app.config.json' assert { type: 'json' };
 
 const debug = debugLib(`${config.name}:server`);
 
@@ -29,9 +31,13 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+/**
+ * Listen on provided port, on localhost only.
+ */
+server.listen(port, 'localhost');
 server.on('error', onError);
 server.on('listening', onListening);
+
 
 /**
  * Normalize a port into a number, string, or false.
